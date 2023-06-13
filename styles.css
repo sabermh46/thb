@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
 :root {
     --accent: #bfc8b6;
     --primary-button: #ccd3c5;
@@ -6,6 +8,9 @@
     --background: #e6e9e2;
     --min-gap: 20px;
     --max-width: 1200px;
+    --low-contrast: #B2C89C;
+    --high_contrast: #79945E;
+    --primary-font: 'Poppins', sans-serif;
 }
 
 html {
@@ -17,9 +22,245 @@ html {
     padding: 0;
     box-sizing: border-box;
     color: var(--text);
+    font-family: var(--primary-font);
 }
 
 body {
     min-height: 200vh;
     background: var(--background);
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.container {
+    position: relative;
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.navbar {
+    position: fixed;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    z-index: 999;
+}
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+.navbar .container .brand {
+    display: block;
+    width: 150px;
+}
+.navbar .container .brand img {
+    width: 100%;
+}
+.navbar .container .links {
+    display: flex;
+    gap: 20px;
+}
+.navbar .container .links .link {
+    display: block;
+    font-weight: 500;
+    text-decoration: none;
+    position: relative;
+}
+.links .link::before {
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: var(--text);
+    position: absolute;
+    bottom: -5px;
+    border-radius: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: 0.5s;
+}
+.links .link:hover::before, .links .link.active::before {
+    width: 90%;
+}
+
+
+.section1 {
+    min-height: 80vh;
+    overflow-x: hidden;
+    position: relative;
+    background: url(./pic/landingBG.svg);
+    background-size: cover;
+    background-position: 50% 50%;
+
+}
+.autoHeight {
+    height: 200px;
+}
+
+.doorGallery {
+    width: 100%;
+    position: relative;
+    height: 580px;
+    outline: 1px solid rgb(0, 0, 0);
+}
+.door {
+    display: flex;
+    position: absolute;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.door > div {
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.doorLeft {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+    transform: translateX(-100px);
+}
+.doorLeft .appIcon {
+    width: 150px;
+}
+.doorLeft .appTitle {
+    font-size: 40px;
+}
+.doorLeft .appSub {
+
+}
+.doorRight {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    transform: translateX(100px);
+}
+.doorRight img {
+    max-width: 500px;
+    height: 580px;
+}
+.indicator {
+    height: 100px;
+}
+
+.door.active .doorLeft, .door.active .doorRight {
+    transform: translateX(0px);
+    visibility: visible;
+    opacity: 1;
+}
+
+
+
+
+
+
+
+
+
+.fromRightToLeft {
+    -webkit-transform: translateX(100px) !important;
+        -ms-transform: translateX(100px) !important;
+            transform: translateX(100px) !important;
+    opacity: 0 !important;
+    -webkit-transition: transform 1s ease, opacity 1s ease;
+    -o-transition: transform 1s ease, opacity 1s ease;
+    transition: transform 1s ease, opacity 1s ease;
+}
+
+.fromLeftToRight {
+    -webkit-transform: translateX(-100px) !important;
+        -ms-transform: translateX(-100px) !important;
+            transform: translateX(-100px) !important;
+    opacity: 0 !important;
+    -webkit-transition: transform 1s ease, opacity 1s ease;
+    -o-transition: transform 1s ease, opacity 1s ease;
+    transition: transform 1s ease, opacity 1s ease;
+}
+.fromLeftToRight.active, .fromRightToLeft.active {
+    -webkit-transform: translateX(0px) !important;
+        -ms-transform: translateX(0px) !important;
+            transform: translateX(0px) !important;
+    opacity: 1 !important;
+}
+.fromDownToTop {
+    -webkit-transform: translateY(100px) !important;
+        -ms-transform: translateY(100px) !important;
+            transform: translateY(100px) !important;
+    opacity: 0 !important;
+    -webkit-transition: transform 1s ease, opacity 1s ease;
+    -o-transition: transform 1s ease, opacity 1s ease;
+    transition: transform 1s ease, opacity 1s ease;
+}
+.fromTopToDown {
+    -webkit-transform: translateY(-100px) !important;
+        -ms-transform: translateY(-100px) !important;
+            transform: translateY(-100px) !important;
+    opacity: 0 !important;
+    -webkit-transition: transform 1s ease, opacity 1s ease;
+    -o-transition: transform 1s ease, opacity 1s ease;
+    transition: transform 1s ease, opacity 1s ease;
+}
+.fromTopToDown.active, .fromDownToTop.active {
+    -webkit-transform: translateY(0px) !important;
+        -ms-transform: translateY(0px) !important;
+            transform: translateY(0px) !important;
+    opacity: 1 !important;
+}
+
+.flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+.flex .f1 {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+}
+.flex .f2 {
+    -webkit-box-flex: 2;
+        -ms-flex: 2;
+            flex: 2;
+}
+.flex .f3 {
+    -webkit-box-flex: 3;
+        -ms-flex: 3;
+            flex: 3;
+}
+.flex .f4 {
+    -webkit-box-flex: 4;
+        -ms-flex: 4;
+            flex: 4;
+}
+
+.flex .f5 {
+    -webkit-box-flex: 5;
+        -ms-flex: 5;
+            flex: 5;
+}
+.flex .f6 {
+    -webkit-box-flex: 6;
+        -ms-flex: 6;
+            flex: 6;
+}
+.flex .f7 {
+    -webkit-box-flex: 7;
+        -ms-flex: 7;
+            flex: 7;
+}
+.flex .f8 {
+    -webkit-box-flex: 8;
+        -ms-flex: 8;
+            flex: 8;
+}
+.flex .f9 {
+    -webkit-box-flex: 9;
+        -ms-flex: 9;
+            flex: 9;
 }
