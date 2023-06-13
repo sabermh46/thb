@@ -109,6 +109,7 @@ body {
     display: flex;
     position: absolute;
     justify-content: space-between;
+    flex-wrap: wrap;
     width: 100%;
 }
 
