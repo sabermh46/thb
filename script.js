@@ -197,14 +197,73 @@ document.addEventListener('DOMContentLoaded', ()=>{
     var winTimer;
 
     function startWinTimer(){
-        timer = setInterval(()=>{
+        winTimer = setInterval(()=>{
           nextWinIndex()
         }, 3000)
       }
       function stopWinTimer(){
-        clearInterval(timer)
+        clearInterval(winTimer)
       }
 
       goToWinIndex(windowIndex)
 
-})
+
+
+
+    const counters = document.querySelectorAll('.counter');
+
+    const countUp = (counter, targetValue, duration) => {
+        let startTime = null;
+        const startValue = parseInt(counter.textContent) || 0;
+
+        const step = (currentTime) => {
+            if (!startTime) startTime = currentTime;
+            const progress = Math.min((currentTime - startTime) / duration, 1);
+            const currentValue = Math.round(startValue + progress * (targetValue - startValue));
+            counter.textContent = currentValue;
+
+            if (progress < 1) {
+                requestAnimationFrame(step);
+            }
+        };
+
+        requestAnimationFrame(step);
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                const counter = entry.target;
+                const duration = parseInt(counter.getAttribute('data-time'));
+                const targetValue = parseInt(counter.getAttribute('data-count-upto'));
+
+                countUp(counter, targetValue, duration);
+                observer.unobserve(counter);
+            }
+        });
+    });
+
+    counters.forEach((counter) => observer.observe(counter));
+
+
+    const animatedText = document.querySelectorAll('.abtUs');
+    animatedText.forEach(item=>{
+        const textContent = item.textContent;
+        item.textContent = '';
+
+        for (let i = 0; i < textContent.length; i++) {
+            const character = textContent[i];
+            if (character === ' ') {
+                const spaceSpan = document.createElement('span');
+                spaceSpan.innerHTML = '&nbsp;';
+                item.appendChild(spaceSpan);
+            } else {
+                const letterSpan = document.createElement('span');
+                letterSpan.textContent = character;
+                letterSpan.style.animationDelay = `${i * 0.005}s`; 
+                item.appendChild(letterSpan);
+            }
+        }
+    })
+
+    })
