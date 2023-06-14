@@ -35,7 +35,7 @@ body {
 
 .container {
     position: relative;
-    width: 80%;
+    width: calc(100% - 40px);
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -610,4 +610,48 @@ span.extra {
   .section5 {
     background: var(--product-bg);
     min-height: 500px;
+    width: 100%;
+    overflow: hidden;
+  }
+
+
+  .slideFrame {
+
+  }
+  .slideFrame .slider {
+    display: flex;
+    outline: 1px solid red;
+    gap: 20px;
+    width: auto;
+  }
+  .slideFrame .slider .slide {
+    border-radius: 12px;
+    font-size: 40px;
+    text-align: center;
+    line-height: 100px;
+    background: var(--low-contrast);
+    height: 320px;
+  }
+
+  .controll {
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  .arrow {
+    width: 50px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    outline: 1px solid black;
+  }
+  .arrow.al {
+    justify-content: left;
+  }
+  .arrow.ar {
+    justify-content: right;
+  }
+  .arrow img {
+    width: inherit;
+    object-fit: cover;
   }

@@ -247,23 +247,59 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
 
     const animatedText = document.querySelectorAll('.abtUs');
-    animatedText.forEach(item=>{
-        const textContent = item.textContent;
-        item.textContent = '';
+        animatedText.forEach(item=>{
+            const textContent = item.textContent;
+            item.textContent = '';
 
-        for (let i = 0; i < textContent.length; i++) {
-            const character = textContent[i];
-            if (character === ' ') {
-                const spaceSpan = document.createElement('span');
-                spaceSpan.innerHTML = '&nbsp;';
-                item.appendChild(spaceSpan);
-            } else {
-                const letterSpan = document.createElement('span');
-                letterSpan.textContent = character;
-                letterSpan.style.animationDelay = `${i * 0.005}s`; 
-                item.appendChild(letterSpan);
+            for (let i = 0; i < textContent.length; i++) {
+                const character = textContent[i];
+                if (character === ' ') {
+                    const spaceSpan = document.createElement('span');
+                    spaceSpan.innerHTML = '&nbsp;';
+                    item.appendChild(spaceSpan);
+                } else {
+                    const letterSpan = document.createElement('span');
+                    letterSpan.textContent = character;
+                    letterSpan.style.animationDelay = `${i * 0.005}s`; 
+                    item.appendChild(letterSpan);
+                }
             }
+        })
+
+        var slideFrame = document.querySelector('.slideFrame');
+        var slider = slideFrame.querySelector('.slider');
+        var slides = slider.querySelectorAll('.slide')
+        var slideInFrame = 4
+        function setSlider(){
+            var slideFrameWidth = slideFrame.getBoundingClientRect().width;
+            var slideWidth = slideFrameWidth / slideInFrame
+            
+            if(slideWidth > 200 && slideWidth < 340) {
+                var actualWidth = (slideFrameWidth - ((slideInFrame-1)*20)) / slideInFrame
+                setWidth(actualWidth)
+                console.log('Yes');
+            } else if(slideWidth < 200){
+                slideInFrame--
+                setSlider()
+                console.log('250');
+            } else if(slideWidth > 340){
+                slideInFrame++
+                setSlider()
+            }
+            
+
         }
-    })
+        function setWidth(width){
+            slides.forEach(item=>{
+                item.style.width = `${width}px`
+                console.log('width setted');
+            })
+            slider.style.width = `${(width * slides.length + 20 * (slides.length - 1))}px`
+        }
+       
+        window.addEventListener('resize', ()=>{
+            setSlider()
+        })
+        setSlider()
 
     })
