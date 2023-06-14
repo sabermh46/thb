@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     var doorIndex = 0
     var maxIndex = doors.length - 1
 
-    doors.forEach((item, i)=>{
+    doors.forEach(item=>{
         var div = document.createElement('div');
         div.classList.add('item')
         indicator.append(div)
@@ -71,12 +71,12 @@ document.addEventListener('DOMContentLoaded', ()=>{
                 closeTheDoor(door)
             })
             indicators.forEach(item=>{
-                item.classList.remove('active')
+                closeTheDoor(item)
             })
 
             doorIndex = index
             openTheDoor(doors[index])
-            indicators[index].classList.add('active')
+            openTheDoor(indicators[index])
 
 
             stopTimer()
@@ -143,5 +143,68 @@ document.addEventListener('DOMContentLoaded', ()=>{
     fromDownToTop_s.forEach(item=>{
         new ActivateInView(item)
     })
+
+
+    const windowGallery = document.querySelector('.windowGallery');
+    const windows = windowGallery.querySelectorAll('.window');
+    const winIndicator = document.querySelector('.window_indicator')
+
+    var windowIndex = 0
+    var windowMaxIndex = windows.length - 1
+
+    windows.forEach(item=>{
+        var div = document.createElement('div');
+        div.classList.add('item')
+
+        winIndicator.append(div)
+    })
+
+    const winIndicators = document.querySelectorAll('.window_indicator .item')
+
+    winIndicators.forEach((item, i)=>{
+        item.addEventListener('click', ()=> {
+            goToWinIndex(i)
+        })
+    })
+
+    function goToWinIndex(index) {
+        if(index > windowMaxIndex){
+            goToWinIndex(0)
+        } else if(index < 0){
+            goToWinIndex(windowMaxIndex)
+        } else {
+            windows.forEach(win=>{
+                closeTheDoor(win)
+            })
+            winIndicators.forEach(item=>{
+                closeTheDoor(item)
+            })
+
+            windowIndex = index
+            openTheDoor(windows[index])
+            openTheDoor(winIndicators[index])
+
+            stopWinTimer()
+            startWinTimer()
+
+        }
+    }
+
+    function nextWinIndex(){
+        goToWinIndex(++windowIndex)
+    }
+
+    var winTimer;
+
+    function startWinTimer(){
+        timer = setInterval(()=>{
+          nextWinIndex()
+        }, 3000)
+      }
+      function stopWinTimer(){
+        clearInterval(timer)
+      }
+
+      goToWinIndex(windowIndex)
 
 })

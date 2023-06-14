@@ -40,6 +40,112 @@ body {
     margin: 0 auto;
 }
 
+
+.fromRightToLeft {
+    -webkit-transform: translateX(100px) !important;
+        -ms-transform: translateX(100px) !important;
+            transform: translateX(100px) !important;
+    opacity: 0 !important;
+    -webkit-transition: transform 1s ease, opacity 1s ease;
+    -o-transition: transform 1s ease, opacity 1s ease;
+    transition: transform 1s ease, opacity 1s ease;
+}
+
+.fromLeftToRight {
+    -webkit-transform: translateX(-100px) !important;
+        -ms-transform: translateX(-100px) !important;
+            transform: translateX(-100px) !important;
+    opacity: 0 !important;
+    -webkit-transition: transform 1s ease, opacity 1s ease;
+    -o-transition: transform 1s ease, opacity 1s ease;
+    transition: transform 1s ease, opacity 1s ease;
+}
+.fromLeftToRight.active, .fromRightToLeft.active {
+    -webkit-transform: translateX(0px) !important;
+        -ms-transform: translateX(0px) !important;
+            transform: translateX(0px) !important;
+    opacity: 1 !important;
+}
+.fromDownToTop {
+    -webkit-transform: translateY(100px) !important;
+        -ms-transform: translateY(100px) !important;
+            transform: translateY(100px) !important;
+    opacity: 0 !important;
+    -webkit-transition: transform 1s ease, opacity 1s ease;
+    -o-transition: transform 1s ease, opacity 1s ease;
+    transition: transform 1s ease, opacity 1s ease;
+}
+.fromTopToDown {
+    -webkit-transform: translateY(-100px) !important;
+        -ms-transform: translateY(-100px) !important;
+            transform: translateY(-100px) !important;
+    opacity: 0 !important;
+    -webkit-transition: transform 1s ease, opacity 1s ease;
+    -o-transition: transform 1s ease, opacity 1s ease;
+    transition: transform 1s ease, opacity 1s ease;
+}
+.fromTopToDown.active, .fromDownToTop.active {
+    -webkit-transform: translateY(0px) !important;
+        -ms-transform: translateY(0px) !important;
+            transform: translateY(0px) !important;
+    opacity: 1 !important;
+}
+
+.flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+.flex .f1 {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+}
+.flex .f2 {
+    -webkit-box-flex: 2;
+        -ms-flex: 2;
+            flex: 2;
+}
+.flex .f3 {
+    -webkit-box-flex: 3;
+        -ms-flex: 3;
+            flex: 3;
+}
+.flex .f4 {
+    -webkit-box-flex: 4;
+        -ms-flex: 4;
+            flex: 4;
+}
+
+.flex .f5 {
+    -webkit-box-flex: 5;
+        -ms-flex: 5;
+            flex: 5;
+}
+.flex .f6 {
+    -webkit-box-flex: 6;
+        -ms-flex: 6;
+            flex: 6;
+}
+.flex .f7 {
+    -webkit-box-flex: 7;
+        -ms-flex: 7;
+            flex: 7;
+}
+.flex .f8 {
+    -webkit-box-flex: 8;
+        -ms-flex: 8;
+            flex: 8;
+}
+.flex .f9 {
+    -webkit-box-flex: 9;
+        -ms-flex: 9;
+            flex: 9;
+}
+
+
+
+
 .navbar {
     position: fixed;
     width: 100%;
@@ -258,113 +364,97 @@ body {
     width: max-content;
     margin: 20px auto;
     border-radius: 6px;
-    transition: 0.5s;
+    transition: 0.5s ease;
 }
 .primaryBtn:hover {
     background: var(--text);
     color: var(--primary-button);
 }
 
-
-
-.fromRightToLeft {
-    -webkit-transform: translateX(100px) !important;
-        -ms-transform: translateX(100px) !important;
-            transform: translateX(100px) !important;
-    opacity: 0 !important;
-    -webkit-transition: transform 1s ease, opacity 1s ease;
-    -o-transition: transform 1s ease, opacity 1s ease;
-    transition: transform 1s ease, opacity 1s ease;
-}
-
-.fromLeftToRight {
-    -webkit-transform: translateX(-100px) !important;
-        -ms-transform: translateX(-100px) !important;
-            transform: translateX(-100px) !important;
-    opacity: 0 !important;
-    -webkit-transition: transform 1s ease, opacity 1s ease;
-    -o-transition: transform 1s ease, opacity 1s ease;
-    transition: transform 1s ease, opacity 1s ease;
-}
-.fromLeftToRight.active, .fromRightToLeft.active {
-    -webkit-transform: translateX(0px) !important;
-        -ms-transform: translateX(0px) !important;
-            transform: translateX(0px) !important;
-    opacity: 1 !important;
-}
-.fromDownToTop {
-    -webkit-transform: translateY(100px) !important;
-        -ms-transform: translateY(100px) !important;
-            transform: translateY(100px) !important;
-    opacity: 0 !important;
-    -webkit-transition: transform 1s ease, opacity 1s ease;
-    -o-transition: transform 1s ease, opacity 1s ease;
-    transition: transform 1s ease, opacity 1s ease;
-}
-.fromTopToDown {
-    -webkit-transform: translateY(-100px) !important;
-        -ms-transform: translateY(-100px) !important;
-            transform: translateY(-100px) !important;
-    opacity: 0 !important;
-    -webkit-transition: transform 1s ease, opacity 1s ease;
-    -o-transition: transform 1s ease, opacity 1s ease;
-    transition: transform 1s ease, opacity 1s ease;
-}
-.fromTopToDown.active, .fromDownToTop.active {
-    -webkit-transform: translateY(0px) !important;
-        -ms-transform: translateY(0px) !important;
-            transform: translateY(0px) !important;
-    opacity: 1 !important;
-}
-
-.flex {
-    display: -webkit-box;
-    display: -ms-flexbox;
+.btnGroup {
     display: flex;
-}
-.flex .f1 {
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
-}
-.flex .f2 {
-    -webkit-box-flex: 2;
-        -ms-flex: 2;
-            flex: 2;
-}
-.flex .f3 {
-    -webkit-box-flex: 3;
-        -ms-flex: 3;
-            flex: 3;
-}
-.flex .f4 {
-    -webkit-box-flex: 4;
-        -ms-flex: 4;
-            flex: 4;
+    gap: 20px;
 }
 
-.flex .f5 {
-    -webkit-box-flex: 5;
-        -ms-flex: 5;
-            flex: 5;
+.appStoreBtn, .playStoreBtn {
+    background: var(--text);
+    color: rgb(164, 164, 164);
+    text-decoration: none;
+    display: flex;
+    gap: 10px;
+    padding: 10px 20px;
+    align-items: center;
+    border-radius: 6px;
+    transition: 0.5s;
 }
-.flex .f6 {
-    -webkit-box-flex: 6;
-        -ms-flex: 6;
-            flex: 6;
+.appStoreBtn img, .playStoreBtn img {
+    height: 30px;
+    filter: grayscale(0.9);
+    transition: 0.5s;
 }
-.flex .f7 {
-    -webkit-box-flex: 7;
-        -ms-flex: 7;
-            flex: 7;
+.appStoreBtn:hover img, .playStoreBtn:hover img {
+    filter: grayscale(0);
 }
-.flex .f8 {
-    -webkit-box-flex: 8;
-        -ms-flex: 8;
-            flex: 8;
+.appStoreBtn:hover, .playStoreBtn:hover {
+    color: var(--background);
 }
-.flex .f9 {
-    -webkit-box-flex: 9;
-        -ms-flex: 9;
-            flex: 9;
+
+
+
+.windowGallery {
+    height: 650px;
+    width: 100%;
+    position: relative;
+}
+.window {
+    display: flex;
+    position: absolute;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+    gap: 50px;
+}
+.window > div {
+    visibility: hidden;
+    opacity: 0;
+    transition: 1s;
+}
+.windowLeft {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    height: 100%;
+    transform: translateX(100px);
+}
+.windowLeft img {
+    max-width: 500px;
+    height: 100%;
+    object-fit: contain;
+}
+.windowRight {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100%;
+    transform: translateX(-100px);
+}
+.windowRight .appIcon {
+    height: 120px;
+    object-fit: contain;
+}
+.windowRight .appTitle {
+    font-size: 40px;
+    max-width: 80%;
+}
+.windowRight .appList {
+    list-style-type: none;
+}
+
+.window.active .windowLeft, .window.active .windowRight {
+    transform: translateX(0px);
+    visibility: visible;
+    opacity: 1;
 }
