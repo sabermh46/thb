@@ -468,6 +468,7 @@ body {
     align-items: center;
     gap: 30px;
     padding: 10px;
+    padding-bottom: 40px;
 }
 
 .c_counter {
@@ -547,7 +548,7 @@ span.extra {
     padding-left: 50px;
   }
   .card {
-    gap: 10px;
+    gap: 20px;
     align-items: center;
     height: 200px;
     position: relative;
@@ -568,6 +569,7 @@ span.extra {
     top: 0px;
     left: 50%;
     transform: translateX(-50%);
+    z-index: -1;
   }
 
   .allCardContainer::after {
@@ -591,4 +593,21 @@ span.extra {
   }
   .cardContainer.inLeft .card::before {
     right: -50px;
+  }
+
+  .info .title {
+    font-weight: 600;
+    font-size: 30px;
+  }
+  .info .subTitle {
+    font-size: 15px;
+    padding-top: 15px;
+    line-height: 25px;
+    letter-spacing: 0.4px;
+  }
+
+
+  .section5 {
+    background: var(--product-bg);
+    min-height: 500px;
   }
