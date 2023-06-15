@@ -266,40 +266,163 @@ document.addEventListener('DOMContentLoaded', ()=>{
             }
         })
 
-        var slideFrame = document.querySelector('.slideFrame');
-        var slider = slideFrame.querySelector('.slider');
-        var slides = slider.querySelectorAll('.slide')
-        var slideInFrame = 4
-        function setSlider(){
-            var slideFrameWidth = slideFrame.getBoundingClientRect().width;
-            var slideWidth = slideFrameWidth / slideInFrame
-            
-            if(slideWidth > 200 && slideWidth < 340) {
-                var actualWidth = (slideFrameWidth - ((slideInFrame-1)*20)) / slideInFrame
-                setWidth(actualWidth)
-                console.log('Yes');
-            } else if(slideWidth < 200){
-                slideInFrame--
-                setSlider()
-                console.log('250');
-            } else if(slideWidth > 340){
-                slideInFrame++
-                setSlider()
+
+        function removeAllChildNodes(parent) {
+            while(parent.firstChild) {
+                parent.removeChild(parent.firstChild);
             }
+        }
+
+        var sliderFrame = document.querySelector('.slideFrame');
+        const slider = document.querySelector('.slider');
+        const slides = document.querySelectorAll('.slide');
+
+        var teamSlideInfo = {
+            frameWidth: 0,
+            slideInFrame: 0,
+            slidesCount: slides.length,
+            numberOfFrame: 0,
+            sliderLenght: 0,
+        }
+
+        function slideInFrame(){
+            var sliderFrameWidth = sliderFrame.getBoundingClientRect().width;
+
+            teamSlideInfo.frameWidth = sliderFrameWidth
+
+            var slideInFrameCount;
+            if(sliderFrameWidth >= 1000) {
+                slideInFrameCount = 4
+            } else if(sliderFrameWidth >= 700){
+                slideInFrameCount = 3
+            } else if(sliderFrameWidth >= 380){
+                slideInFrameCount = 2
+            } else {
+                slideInFrameCount = 1
+            }
+            teamSlideInfo.slideInFrame = slideInFrameCount
+            teamSlideInfo.numberOfFrame = Math.floor(slides.length / slideInFrameCount)
             
+            if(slides.length % slideInFrameCount != 0){
+                teamSlideInfo.numberOfFrame++
+            }
+            return slideInFrameCount;
+        }
+        function setSliderrWidth(){
+            var inFrame = slideInFrame();
+            
+            var sliderFrameWidth = teamSlideInfo.frameWidth
+            
+            var slideWidth = Math.floor((sliderFrameWidth - ((inFrame - 1)*20))/inFrame)
+
+            var sliderWidth = (slideWidth * slides.length) + (20 * (slides.length - 1))
+            slider.style.width = `${sliderWidth}px`
+            teamSlideInfo.sliderLenght = sliderWidth
+
+            setSlideWidth(slideWidth)
+            setTeamIndicator()
+        }
+        function setSlideWidth(slideWidth) {
+            
+            slides.forEach(item=>{
+                item.style.width = `${slideWidth}px`
+            })
 
         }
-        function setWidth(width){
-            slides.forEach(item=>{
-                item.style.width = `${width}px`
-                console.log('width setted');
-            })
-            slider.style.width = `${(width * slides.length + 20 * (slides.length - 1))}px`
+        setSliderrWidth()
+
+        var teamIndex = 0;
+        var maxTeamIndex;
+
+        var team_indicator = document.querySelector('.team_indicator');
+
+        function setTeamIndicator(){
+            var team_indicator = document.querySelector('.team_indicator');
+            removeAllChildNodes(team_indicator)
+            for(var i=0; i< teamSlideInfo.numberOfFrame; i++)
+            {
+                var div = document.createElement('div');
+                div.classList.add('item')
+                team_indicator.append(div)
+            }
         }
-       
-        window.addEventListener('resize', ()=>{
-            setSlider()
+
+
+        function goToFrameIndex(index){
+            var teamIndicators = team_indicator.querySelectorAll('.item')
+            teamIndicators.forEach((item, i)=>{
+                item.addEventListener('click', ()=>{
+                    goToFrameIndex(i)
+                })
+            })
+            if(index < 0){
+                goToFrameIndex(teamSlideInfo.numberOfFrame - 1)
+            } else if(index > (teamSlideInfo.numberOfFrame - 1)) {
+                goToFrameIndex(0)
+            } else {
+
+                moveTheSlider(index)
+                teamIndicators.forEach(item=>{
+                    closeTheDoor(item)
+                })
+
+                console.log(index + '   yoo==>' + teamSlideInfo.numberOfFrame);
+
+                openTheDoor(teamIndicators[index])
+                teamIndex = index
+                stopTeamTimer()
+                startTeamTimer()
+            }
+        }
+
+        goToFrameIndex(teamIndex)
+
+        function moveTheSlider(index){
+            var unitMove = teamSlideInfo.frameWidth
+            var maxMove = teamSlideInfo.sliderLenght - unitMove
+            
+            var move = (unitMove + 20) * index;
+            if(move >= maxMove) {
+                move = maxMove
+            }
+            console.log(teamSlideInfo.sliderLenght);
+
+            slider.style.transform = `translateX(-${move}px)`
+        }
+
+        function nextTeamIndex(){
+            goToFrameIndex(++teamIndex)
+        }
+        function prevTeamIndex(){
+            goToFrameIndex(--teamIndex)
+        }
+
+        var nextteamArrow = document.querySelector('.arrow.ar')
+        var prevteamArrow = document.querySelector('.arrow.al')
+
+        nextteamArrow.addEventListener('click', ()=>{
+            nextTeamIndex()
         })
-        setSlider()
+        prevteamArrow.addEventListener('click', ()=>{
+            prevTeamIndex()
+        })
+
+
+        var teamTimer;
+
+        function startTeamTimer(){
+            teamTimer = setInterval(()=>{
+            nextTeamIndex()
+            }, 3000)
+        }
+        function stopTeamTimer(){
+            clearInterval(teamTimer)
+        }
+
+
+        window.addEventListener('resize', ()=>{
+            setSliderrWidth()
+            goToFrameIndex(teamIndex)
+        })
 
     })
