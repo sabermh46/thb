@@ -277,6 +277,7 @@ body {
     transition: 1s;
     border-radius: 20px;
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
 }
 .indicator .item.active {
     width: 30px;
@@ -650,11 +651,12 @@ span.extra {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.487);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.322);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
+    gap: 10px;
     padding: 10px;
   }
   .slide .info .name {
@@ -687,3 +689,57 @@ span.extra {
     width: inherit;
     object-fit: cover;
   }
+
+
+
+  form.form {
+    margin: 0 auto;
+    width: 700px;
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    background: var(--secondary-button);
+    border-radius: 20px;
+    flex-wrap: wrap;
+}
+.input {
+    flex: 1;
+    background: var(--background);
+    padding: 10px;
+    border-radius: 12px;
+    min-width: 300px;
+}
+.input.full {
+    min-width: 100%;
+}
+.input label {
+    display: inline-block;
+    width: 150px;
+    padding-bottom: 10px;
+}
+.input input, .input textarea {
+    border: none;
+    background: var(--secondary-button);
+    padding: 10px;
+    border-radius: 8px;
+    width: 100%;
+}
+.input textarea {
+    max-width: 100%;
+    min-width: 100%;
+}
+form.form button {
+    width: 100%;
+    font-size: 20px;
+    padding: 10px 0;
+    cursor: pointer;
+    border-radius: 12px;
+    border: 2px solid transparent;
+    background: var(--background);
+    transition: 0.5s;
+}
+form.form button:hover {
+    background: var(--text);
+    color: var(--background);
+    border: 2px solid white;
+}
