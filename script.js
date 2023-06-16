@@ -366,7 +366,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
                     closeTheDoor(item)
                 })
 
-                console.log(index + '   yoo==>' + teamSlideInfo.numberOfFrame);
 
                 openTheDoor(teamIndicators[index])
                 teamIndex = index
@@ -385,7 +384,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
             if(move >= maxMove) {
                 move = maxMove
             }
-            console.log(teamSlideInfo.sliderLenght);
 
             slider.style.transform = `translateX(-${move}px)`
         }
