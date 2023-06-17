@@ -426,36 +426,39 @@ document.addEventListener('DOMContentLoaded', ()=>{
         })
 
 
-        const navbarLinks = Array.from(document.querySelectorAll('.links a'));
+        const sections = document.querySelectorAll('.section');
+        const navLinks = document.querySelectorAll('.links a');
 
-        console.log(navbarLinks);
+        // Define the options for the Intersection Observer
+        const options = {
+        root: null, // Use the viewport as the root
+        threshold: 0.5 // Trigger when 50% of the section is visible
+        };
 
-        window.addEventListener('scroll', ()=>{
-            const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+        // Define the callback function for the Intersection Observer
+        const handleIntersection = (entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+            // Get the ID of the intersecting section
+            const targetId = entry.target.getAttribute('id');
 
-            // Iterate through each section and check if it is in the viewport
-            navbarLinks.forEach(link => {
-                const sectionId = link.getAttribute('href').substring(1); // Extract section ID without the hash symbol
-                const section = document.getElementById(sectionId); // Use getElementById instead of querySelector
-
-                if (section) {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.offsetHeight;
-
-                // Adjust the scroll position by a small threshold to improve accuracy
-                const scrollThreshold = 10;
-                const sectionInView = scrollPosition + scrollThreshold >= sectionTop && scrollPosition < sectionTop + sectionHeight;
-
-                if (sectionInView) {
-                    // Add active class to the corresponding navbar link
-                    link.classList.add('active');
-                } else {
-                    // Remove active class from other navbar links
-                    link.classList.remove('active');
-                }
+            // Add 'active' class to the corresponding navigation link
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${targetId}`) {
+                link.classList.add('active');
                 }
             });
-        })
+            }
+        });
+        };
 
+        // Create an Intersection Observer instance with the callback function and options
+        const observerr = new IntersectionObserver(handleIntersection, options);
+
+        // Observe each section
+        sections.forEach(section => {
+        observerr.observe(section);
+        });
 
     })
