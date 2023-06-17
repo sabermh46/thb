@@ -803,3 +803,53 @@ form.form button:hover {
 .address p {
     font-size: 18px;
 }
+
+.inspire {
+    font-size: 30px;
+    font-weight: 500;
+    color: var(--high-contrast);
+    text-align: center;
+}
+
+
+.whyWe {
+    margin: 40px 0;
+}
+.whyWe .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.whyWe .info h2 {
+    text-align: left;
+    padding-bottom: 20px;
+}
+.whyWe .info p {
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.6px;
+    line-height: 40px;
+}
+.whyWe .img {
+    height: 400px;
+    overflow: hidden;
+    border-radius: 22px;
+}
+.whyWe .img img {
+    width: 100%;
+}
+.parentOfCare {
+    gap: 50px;
+}
+.f1.care {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.headSubItem {
+    background: var(--accent);
+    padding: 5px 30px;
+    font-size: 20px;
+    text-align: center;
+    clip-path: polygon(calc(100% - 20px) 0, 100% 50%, calc(100% - 20px) 100%, 0% 100%, 20px 50%, 0% 0%);;
+}

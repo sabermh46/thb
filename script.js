@@ -418,9 +418,44 @@ document.addEventListener('DOMContentLoaded', ()=>{
         }
 
 
+        
+
         window.addEventListener('resize', ()=>{
             setSliderrWidth()
             goToFrameIndex(teamIndex)
         })
+
+
+        const navbarLinks = Array.from(document.querySelectorAll('.links a'));
+
+        console.log(navbarLinks);
+
+        window.addEventListener('scroll', ()=>{
+            const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+
+            // Iterate through each section and check if it is in the viewport
+            navbarLinks.forEach(link => {
+                const sectionId = link.getAttribute('href').substring(1); // Extract section ID without the hash symbol
+                const section = document.getElementById(sectionId); // Use getElementById instead of querySelector
+
+                if (section) {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+
+                // Adjust the scroll position by a small threshold to improve accuracy
+                const scrollThreshold = 40;
+                const sectionInView = scrollPosition + scrollThreshold >= sectionTop && scrollPosition < sectionTop + sectionHeight;
+
+                if (sectionInView) {
+                    // Add active class to the corresponding navbar link
+                    link.classList.add('active');
+                } else {
+                    // Remove active class from other navbar links
+                    link.classList.remove('active');
+                }
+                }
+            });
+        })
+
 
     })
