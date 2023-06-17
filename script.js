@@ -28,6 +28,26 @@ document.addEventListener('DOMContentLoaded', ()=>{
     window.addEventListener('scroll', updateNavbar);
     updateNavbar();
 
+    var links = document.querySelector('.container .links')
+    var allLinks = links.querySelectorAll('.link');
+    
+    if(window.innerWidth <= 900){
+        allLinks.forEach(item=>{
+            item.addEventListener('click', ()=>{
+                doMenu()
+            })
+        })
+    }
+    var burger_menu = document.querySelector('.menu')
+    burger_menu.addEventListener('click', ()=>{
+        doMenu()
+    })
+
+    function doMenu(){
+        burger_menu.classList.toggle('active')
+        links.classList.toggle('activ')
+    }
+
 
     const doorGallery = document.querySelector('.doorGallery');
     const doors = doorGallery.querySelectorAll('.door');
@@ -431,8 +451,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
         // Define the options for the Intersection Observer
         const options = {
-        root: null, // Use the viewport as the root
-        threshold: 0.5 // Trigger when 50% of the section is visible
+            root: null, // Use the viewport as the root
+            threshold: 0.5 // Trigger when 50% of the section is visible
         };
 
         // Define the callback function for the Intersection Observer
