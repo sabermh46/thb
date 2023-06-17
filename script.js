@@ -443,7 +443,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
                 const sectionHeight = section.offsetHeight;
 
                 // Adjust the scroll position by a small threshold to improve accuracy
-                const scrollThreshold = 40;
+                const scrollThreshold = 10;
                 const sectionInView = scrollPosition + scrollThreshold >= sectionTop && scrollPosition < sectionTop + sectionHeight;
 
                 if (sectionInView) {
