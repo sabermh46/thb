@@ -820,10 +820,14 @@ form.form button:hover {
     color: var(--high-contrast);
     text-align: center;
 }
-
+.inspire.sm {
+    width: 80% !important;
+    margin: 0 auto;
+}
 
 .whyWe {
     margin: 40px 0;
+    gap: 30px;
 }
 .whyWe .info {
     display: flex;
@@ -863,6 +867,8 @@ form.form button:hover {
     text-align: center;
     clip-path: polygon(calc(100% - 20px) 0, 100% 50%, calc(100% - 20px) 100%, 0% 100%, 20px 50%, 0% 0%);;
 }
+
+
 .excep {
     font-size: 20px !important;
 }
@@ -871,6 +877,48 @@ form.form button:hover {
     overflow-x: hidden;
 }
 
+.footer {
+    padding: 20px 0;
+    min-height: 200px;
+    background: var(--accent);
+}
+.logo {
+    max-width: 250px;
+    margin: 0 auto;
+}
+.logo img {
+    width: 100%;
+}
+.copyRight {
+    text-align: center;
+    border-top: 1px solid var(--background);
+    padding-top: 10px;
+}
+
+.social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+}
+.social .sImg {
+    text-decoration: none;
+    display: block;
+    height: 50px;
+    background: white;
+    border: 1px solid white;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: 0.5s;
+}
+.social .sImg img {
+    height: 100%;
+}
+.social .sImg:hover {
+    background: black;
+    border: 1px solid black;
+}
 
 @media (max-width: 1000px) {
 
@@ -1155,6 +1203,54 @@ form.form button:hover {
   }
 
 
+  .section8 > .flex {
+    flex-direction: column;
+    gap: 50px;
+  }
+
+
+}
+
+@media (max-width: 800px) {
+    .inspire {
+        font-size: 26px;
+    }
+    
+    
+    .whyWe {
+        flex-direction: column;
+    }
+    .whyWe .info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .whyWe .info h2 {
+        text-align: left;
+        padding-bottom: 20px;
+    }
+    .whyWe .info p {
+        font-size: 16px;
+        font-weight: 500;
+        letter-spacing: 0.6px;
+        line-height: 40px;
+    }
+    .whyWe .img {
+        max-height: 400px;
+    }
+    .whyWe .img img {
+        width: 100%;
+        object-fit: cover;
+    }
+    .parentOfCare {
+        gap: 20px;
+        flex-direction: column;
+    }
+    .f1.care {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
 }
 
 @media (max-width: 750px) {
@@ -1445,5 +1541,56 @@ form.form button:hover {
 .icon.f1 img {
     width: 100%;
 }
+
+.inspire {
+    font-size: 24px;
+}
+.inspire.sm {
+    width: 90% !important;
+}
+.whyWe .info h2 {
+    text-align: left;
+    padding-bottom: 20px;
+}
+.whyWe .info p {
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.6px;
+    line-height: 40px;
+}
+.whyWe .img {
+    max-height: 300px;
+    width: 100%;
+}
+.whyWe .img img {
+    width: 100%;
+    object-fit: cover;
+}
+.parentOfCare {
+    gap: 20px;
+    flex-direction: column;
+}
+.f1.care {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.headSubItem {
+    font-size: 16px;
+    font-weight: 500;
+}
+.input {
+    min-width: 200px;
+}
+.clickableLink {
+    width: 100%;
+}
+.clickableLink p {
+    word-break: break-all;
+}
+
+
+
+
 
 }
