@@ -886,6 +886,7 @@ form.form button:hover {
 }
 .headSubItem {
     background: var(--accent);
+    color: var(--background);
     padding: 5px 30px;
     font-size: 20px;
     text-align: center;
