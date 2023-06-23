@@ -457,7 +457,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         // Define the options for the Intersection Observer
         const options = {
             root: null, // Use the viewport as the root
-            threshold: 0.5 // Trigger when 50% of the section is visible
+            threshold: 0.3 // Trigger when 50% of the section is visible
         };
 
         // Define the callback function for the Intersection Observer
