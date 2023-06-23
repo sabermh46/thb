@@ -1,8 +1,8 @@
-<svg width="616" height="615" viewBox="0 0 616 615" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M91.7207 336.788V223.112L186.204 167.012" stroke="#19C873" stroke-width="23" stroke-linecap="round"/>
-<path d="M429.795 169.965L527.232 226.065V335.312" stroke="#DB4437" stroke-width="23" stroke-linecap="round"/>
-<path d="M407.651 543.471L311.691 601.047L209.825 543.471" stroke="#F4B400" stroke-width="23" stroke-linecap="round"/>
-<path d="M310.215 285.117L192.11 215.731V81.3865M310.215 285.117L429.796 215.731V81.3865M310.215 285.117L305.786 156.678M429.796 81.3865L310.215 12L192.11 81.3865M429.796 81.3865L305.786 156.678M192.11 81.3865L305.786 156.678" stroke="#4F558E" stroke-width="23" stroke-linecap="square" stroke-linejoin="round"/>
-<path d="M484.419 589.237L366.314 519.85V385.506M484.419 589.237L604 519.85V385.506M484.419 589.237L479.99 460.798M604 385.506L484.419 316.12L366.314 385.506M604 385.506L479.99 460.798M366.314 385.506L479.99 460.798" stroke="#4F558E" stroke-width="23" stroke-linecap="square" stroke-linejoin="round"/>
-<path d="M130.105 589.237L12 519.85V385.506M130.105 589.237L249.686 519.85V385.506M130.105 589.237L125.676 460.798M249.686 385.506L130.105 316.12L12 385.506M249.686 385.506L125.676 460.798M12 385.506L125.676 460.798" stroke="#4F558E" stroke-width="23" stroke-linecap="square" stroke-linejoin="round"/>
+<svg width="210" height="210" viewBox="0 0 210 210" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M32 115V76.5L64 57.5" stroke="#19C873" stroke-width="9" stroke-linecap="round"/>
+<path d="M146.5 58.5L179.5 77.5V114.5" stroke="#DB4437" stroke-width="9" stroke-linecap="round"/>
+<path d="M139 185L106.5 204.5L72 185" stroke="#F4B400" stroke-width="9" stroke-linecap="round"/>
+<path d="M106 97.5L66 74V28.5M106 97.5L146.5 74V28.5M106 97.5L104.5 54M146.5 28.5L106 5L66 28.5M146.5 28.5L104.5 54M66 28.5L104.5 54" stroke="#4F558E" stroke-width="9" stroke-linecap="square" stroke-linejoin="round"/>
+<path d="M165 200.5L125 177V131.5M165 200.5L205.5 177V131.5M165 200.5L163.5 157M205.5 131.5L165 108L125 131.5M205.5 131.5L163.5 157M125 131.5L163.5 157" stroke="#4F558E" stroke-width="9" stroke-linecap="square" stroke-linejoin="round"/>
+<path d="M45 200.5L5 177V131.5M45 200.5L85.5 177V131.5M45 200.5L43.5 157M85.5 131.5L45 108L5 131.5M85.5 131.5L43.5 157M5 131.5L43.5 157" stroke="#4F558E" stroke-width="9" stroke-linecap="square" stroke-linejoin="round"/>
 </svg>
