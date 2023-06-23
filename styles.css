@@ -171,7 +171,10 @@ body {
 .navbar .container .brand {
     display: block;
     width: 150px;
-    filter: drop-shadow(1px 3px 2px rgba(0, 0, 0, 0.259));
+    filter: drop-shadow(2px 3px 3px rgba(0, 0, 0, 0.359));
+}
+.logo img {
+    filter: drop-shadow(2px 3px 3px rgba(0, 0, 0, 0.359));
 }
 .navbar .container .brand img {
     width: 100%;
@@ -753,7 +756,7 @@ span.extra {
 }
 .input input, .input textarea {
     border: none;
-    background: var(--secondary-button);
+    background: rgb(235, 242, 255);
     padding: 10px;
     border-radius: 8px;
     width: 100%;
@@ -905,7 +908,7 @@ form.form button:hover {
 .footer {
     padding: 20px 0;
     min-height: 200px;
-    background: var(--accent);
+    background: rgb(129, 139, 163);
 }
 .logo {
     max-width: 250px;
@@ -915,6 +918,7 @@ form.form button:hover {
     width: 100%;
 }
 .copyRight {
+    color: var(--background);
     text-align: center;
     border-top: 1px solid var(--background);
     padding-top: 10px;
