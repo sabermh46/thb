@@ -5,6 +5,11 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
     const navbar = document.querySelector('.navbar');
 
+    var navbarLinks = navbar.querySelectorAll('a.link')
+    navbarLinks.forEach((item, i)=>{
+        item.style.transitionDelay = `${i*0.2}`
+    })
+
     const initialPaddingTop = 70;
     const finalPaddingTop = 0;
     const scrollThreshold = 400;
@@ -20,7 +25,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
         // Calculate the current opacity using linear interpolation
         const currentOpacity = progress;
-        const backgroundColor = `rgba(191, 200, 182, ${currentOpacity})`;
+        const backgroundColor = `rgba(129, 139, 163, ${currentOpacity})`;
 
         navbar.style.backgroundColor = backgroundColor;
     };

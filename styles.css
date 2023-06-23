@@ -1,16 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
 
-:root {
-    --accent: #bfc8b6;
+:root { 
+    --accent: #434eba;
+    --primary-button: #434eba;
+    --secondary-button: #d6d9ff;
+    --text: #3c3c3e;
+    --background: #ffffff;
+    --product-bg: #F4F5FF;
+    --p-cat: #E7E9FF;
+    --low-contrast: #d8daff;
+    --high-contrast: #6d60ad; 
+    /* --accent: #bfc8b6;
     --primary-button: #ccd3c5;
     --secondary-button: #f5f6f3;
     --text: #1a1d16;
     --background: #e6e9e2;
-    --min-gap: 20px;
-    --max-width: 1200px;
     --product-bg: #DCE0D6;
     --low-contrast: #B2C89C;
-    --high-contrast: #79945E;
+    --high-contrast: #79945E; */
+    --min-gap: 20px;
+    --max-width: 1200px;
     --primary-font: 'Poppins', sans-serif;
 }
 
@@ -162,6 +171,7 @@ body {
 .navbar .container .brand {
     display: block;
     width: 150px;
+    filter: drop-shadow(1px 3px 2px rgba(0, 0, 0, 0.259));
 }
 .navbar .container .brand img {
     width: 100%;
@@ -175,12 +185,13 @@ body {
     font-weight: 500;
     text-decoration: none;
     position: relative;
+    color: var(--background);
 }
 .links .link::before {
     content: '';
     width: 0%;
     height: 2px;
-    background: var(--text);
+    background: var(--background);
     position: absolute;
     bottom: -5px;
     border-radius: 12px;
@@ -205,7 +216,7 @@ body {
     height: auto;
     overflow: hidden;
     position: relative;
-    background: url(./pic/landingBG.svg);
+    background: url(./pic/bg2.svg);
     background-size: cover;
     background-position: 50% 50%;
 
@@ -247,9 +258,11 @@ body {
 .doorLeft .appTitle {
     font-size: 40px;
     max-width: 80%;
+    color: var(--background);
 }
 .doorLeft .appSub {
     font-size: 20px;
+    color: var(--background);
 }
 .doorRight {
     flex: 1;
@@ -329,7 +342,7 @@ body {
     min-height: 250px;
 }
 .product .category {
-    background: var(--accent);
+    background: var(--p-cat);
     border-top-left-radius: 8px;
     border-bottom-right-radius: 8px;
     position: absolute;
@@ -370,7 +383,9 @@ body {
     width: 100%;
 }
 .primaryBtn {
+    border: 2px solid transparent;
     background: var(--primary-button);
+    color: var(--background);
     text-decoration: none;
     padding: 10px 30px;
     display: block;
@@ -380,7 +395,8 @@ body {
     transition: 0.5s ease;
 }
 .primaryBtn:hover {
-    background: var(--text);
+    background: var(--background);
+    border: 2px solid var(--primary-button);
     color: var(--primary-button);
 }
 
@@ -390,7 +406,7 @@ body {
 }
 
 .appStoreBtn, .playStoreBtn {
-    background: var(--text);
+    background: black;
     color: rgb(164, 164, 164);
     text-decoration: none;
     display: flex;
@@ -429,15 +445,17 @@ body {
 }
 .window > div {
     visibility: hidden;
+    filter: blur(10px);
+    transform: scale(1.1);
     opacity: 0;
-    transition: 1s;
+    transition: 2s;
 }
 .windowLeft {
     flex: 1;
     display: flex;
     justify-content: flex-end;
     height: 100%;
-    transform: translateX(100px);
+    /* transform: translateX(100px); */
 }
 .windowLeft img {
     max-width: 500px;
@@ -452,7 +470,8 @@ body {
     justify-content: center;
     align-items: flex-start;
     height: 100%;
-    transform: translateX(-100px);
+    /* transform: translateX(-100px); */
+    /* filter: blur(10px); */
     z-index: -1;
 }
 .windowRight .appIcon {
@@ -468,9 +487,14 @@ body {
 }
 
 .window.active .windowLeft, .window.active .windowRight {
-    transform: translateX(0px);
+    /* transform: translateX(0px); */
+    filter: blur(0px);
     visibility: visible;
     opacity: 1;
+    transform: scale(1);
+    /* z-index: 99; */
+}
+.window.active .windowRight {
     z-index: 99;
 }
 
@@ -1504,19 +1528,11 @@ form.form button:hover {
 
 
   .primaryBtn {
-    background: var(--primary-button);
-    text-decoration: none;
     padding: 10px 30px;
-    display: block;
-    width: max-content;
     margin: 20px auto;
     border-radius: 6px;
-    transition: 0.5s ease;
 }
-.primaryBtn:hover {
-    background: var(--text);
-    color: var(--primary-button);
-}
+
 
 .btnGroup {
     display: flex;
@@ -1553,10 +1569,11 @@ form.form button:hover {
     padding-bottom: 20px;
 }
 .whyWe .info p {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 500;
     letter-spacing: 0.6px;
-    line-height: 40px;
+    word-spacing: 2px;
+    line-height: 25px;
 }
 .whyWe .img {
     max-height: 300px;
