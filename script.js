@@ -10,9 +10,11 @@ document.addEventListener('DOMContentLoaded', ()=>{
         item.style.transitionDelay = `${i*0.2}`
     })
 
-    const initialPaddingTop = 70;
+    var dWidth = window.innerWidth
+
+    const initialPaddingTop = dWidth>500 ? 70 : 30;
     const finalPaddingTop = 0;
-    const scrollThreshold = 400;
+    const scrollThreshold = dWidth>500 ? 400 : 200;
 
 
     const updateNavbar = () => {
@@ -61,10 +63,11 @@ document.addEventListener('DOMContentLoaded', ()=>{
     var doorIndex = 0
     var maxIndex = doors.length - 1
 
+    var div = document.createElement('div');
+    div.classList.add('item')
+
     doors.forEach(item=>{
-        var div = document.createElement('div');
-        div.classList.add('item')
-        indicator.append(div)
+        indicator.append(div.cloneNode(true))
       })
 
       const indicators = document.querySelectorAll('.door_indicator .item');
@@ -178,10 +181,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     var windowMaxIndex = windows.length - 1
 
     windows.forEach(item=>{
-        var div = document.createElement('div');
-        div.classList.add('item')
-
-        winIndicator.append(div)
+        winIndicator.append(div.cloneNode(true))
     })
 
     const winIndicators = document.querySelectorAll('.window_indicator .item')
@@ -366,9 +366,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
             removeAllChildNodes(team_indicator)
             for(var i=0; i< teamSlideInfo.numberOfFrame; i++)
             {
-                var div = document.createElement('div');
-                div.classList.add('item')
-                team_indicator.append(div)
+                team_indicator.append(div.cloneNode(true))
             }
         }
 
@@ -483,7 +481,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
         // Observe each section
         sections.forEach(section => {
-        observerr.observe(section);
+            observerr.observe(section);
         });
 
     })
