@@ -152,6 +152,9 @@ document.addEventListener('DOMContentLoaded', ()=>{
     }
     
 
+    var lafa = document.querySelector('.lafaLafi')
+    new ActivateInView(lafa)
+
     
     var fromRightToLeft_s = document.querySelectorAll('.fromRightToLeft')
 

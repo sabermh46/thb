@@ -960,6 +960,51 @@ form.form button:hover {
     border: 1px solid var(--accent);
 }
 
+.section2 {
+    position: relative;
+    background: var(--product-bg);
+    overflow: hidden;
+}
+.lafaLafi {
+    position: absolute;
+    background: var(--background);
+    height: 200px;
+    width: 200px;
+    opacity: 0;
+    top: 50%;
+    left: 50px;
+    transform: translateY(-50%);
+}
+.lafaLafi.active {
+    animation: deJump 2s ease 0s 1 forwards;
+}
+@keyframes deJump {
+    0% {
+        width: 0px;
+        height: 0px;
+        opacity: 0;
+        top: calc(100% - 200px);
+        border-radius: 0px;
+        transform: rotate(-360deg);
+    }
+    40% {
+        width: 200px;
+        height: 200px;
+        top: 50%;
+        opacity: 1;
+        transform: rotate(0deg);
+        border-radius: 0px;
+    }
+    60% {
+        border-radius: 100px;
+        transform: scale(0.7);
+    }
+    to {
+        opacity: 1;
+        transform: scale(20);
+    }
+}
+
 @media (max-width: 1000px) {
 
     .container .product {
@@ -1327,7 +1372,7 @@ form.form button:hover {
     }
     
     .c_counter {
-        width: 100px;
+        width: 120px;
     }
     
     .c_counter .up {
@@ -1476,14 +1521,7 @@ form.form button:hover {
         gap: 20px;
         flex-wrap: wrap;
     }
-    
-    .c_counter {
-        width: 120px;
-    }
-    
-    .c_counter .up {
-        min-width: 60px;
-    }
+
     .c_counter .up .counter {
         font-size: 28px;
     }
