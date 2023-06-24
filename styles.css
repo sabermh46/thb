@@ -1382,6 +1382,10 @@ form.form button:hover {
 }
 
 @media (max-width: 650px) {
+
+    .autoHeight {
+        height: 120px;
+    }
     .section2 .container {
         flex-direction: column;
     }
