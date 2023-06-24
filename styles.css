@@ -1478,7 +1478,7 @@ form.form button:hover {
     }
     
     .c_counter {
-        width: 140px;
+        width: 120px;
     }
     
     .c_counter .up {
@@ -1491,7 +1491,7 @@ form.form button:hover {
         font-size: 28px;
     }
     span.excep {
-        font-size: 12px !important;
+        font-size: 16px !important;
     }
     .abtUsText {
         font-size: 16px;
@@ -1623,6 +1623,7 @@ form.form button:hover {
     width: 100%;
 }
 .clickableLink p {
+    font-size: 22px;
     word-break: break-all;
 }
 
