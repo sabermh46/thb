@@ -321,15 +321,8 @@ body {
     gap: 20px;
     flex-wrap: wrap;
 }
-.section2 .container .right .product {
-    height: 100%;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
-    gap: 20px;
-}
 .container .product {
-    background: var(--product-bg);
+    background: #f4f5ffab;
     border-radius: 8px;
     position: relative;
     display: flex;
@@ -339,6 +332,14 @@ body {
     padding-top: 30px;
     min-height: 250px;
 }
+.section2 .container .right .product {
+    height: 100%;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: 20px;
+}
+
 .product .category {
     background: var(--p-cat);
     border-top-left-radius: 8px;
@@ -951,6 +952,7 @@ form.form button:hover {
     border-radius: 16px;
     overflow: hidden;
     transition: 0.5s;
+    -webkit-tap-highlight-color: transparent;
 }
 .social .sImg img {
     height: 100%;
@@ -971,12 +973,12 @@ form.form button:hover {
     height: 200px;
     width: 200px;
     opacity: 0;
-    top: 50%;
-    left: 50px;
+    top: 30%;
+    left: 80px;
     transform: translateY(-50%);
 }
 .lafaLafi.active {
-    animation: deJump 2s ease 0s 1 forwards;
+    animation: deJump 2.5s ease 0s 1 forwards;
 }
 @keyframes deJump {
     0% {
@@ -986,18 +988,21 @@ form.form button:hover {
         top: calc(100% - 200px);
         border-radius: 0px;
         transform: rotate(-360deg);
+        background: var(--background);
     }
     40% {
         width: 200px;
         height: 200px;
-        top: 50%;
+        top: 30%;
         opacity: 1;
         transform: rotate(0deg);
         border-radius: 0px;
+        background: var(--accent);
     }
     60% {
         border-radius: 100px;
         transform: scale(0.7);
+        background: var(--background);
     }
     to {
         opacity: 1;
